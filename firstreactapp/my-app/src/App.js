@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import logo from './logo.png';
 import './App.css';
-import {Homepage} from './Homepage';
+import {Content} from './Components/Content';
+import {Album} from './Components/Album';
+import {Photos} from './Components/Content';
 
 class App extends Component {
   render() {
-    return (
-    <div className="container fullsize">
+    return (  
+    <div className="container">
       <div className="App"> 
-        <div className="container">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </div>
-        </div>
-        <Homepage/>
+          <Router>
+            <Route path ="/Photos" component={Photos}/>
+          </Router>
       </div>
-     
-    </div>
+      <Content/> 
+    </div> 
     );
   }
 }
