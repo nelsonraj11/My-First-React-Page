@@ -4,22 +4,22 @@ import logo from './logo.png';
 import './App.css';
 import {Content} from './Components/Content';
 import {Album} from './Components/Album';
-import {Photos} from './Components/Content';
+import {Photos} from './Components/Photos';
 
 class App extends Component {
   render() {
     return (  
+  <Router>
     <div className="container">
       <div className="App"> 
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
           </div>
-          <Router>
-            <Route path ="/Photos" component={Photos}/>
-          </Router>
-      </div>
-      <Content/> 
+            <Route path ="/Photos/:id" component={Photos}/>
+          </div>
+      <Content/>   
     </div> 
+  </Router>
     );
   }
 }

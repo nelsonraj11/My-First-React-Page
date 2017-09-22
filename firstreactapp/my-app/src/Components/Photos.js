@@ -5,12 +5,12 @@ export class Photos extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            data: {}
+            data: []
         }
     }
     componentDidMount(){
-        var url = ALBUM_URL + this.props.albumdetails.id + ALBUM_ID;
-        fetch(url)
+        var pics = ALBUM_URL + this.props.match.params.id + ALBUM_ID;
+        fetch(pics)
         .then(results => results.json())
         .then(data => {
             console.log("data",data);
@@ -19,11 +19,12 @@ export class Photos extends React.Component{
     }
     
     render(){
-        return( 
-                <div className="col-md-4">
-                
-                </div>
-                
-        )
+
+        //return this.state.data.map((value) => this.renderPictures(value));
+         return(
+            <div className="col-md-4">
+                <img  id = "image"  src={this.state.data.url}/>
+            </div>
+         )
     }    
 }
