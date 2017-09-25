@@ -13,18 +13,24 @@ export class Photos extends React.Component{
         fetch(pics)
         .then(results => results.json())
         .then(data => {
-            console.log("data",data);
-            this.setState({data:data})    
+            this.setState({data:data})  
+            //console.log("data",data);  
         })  
     }
     
     render(){
-
-        //return this.state.data.map((value) => this.renderPictures(value));
-         return(
+        //console.log(this.state.data)
+         var pics = this.state.data.map((value) => {
+             return <div className="col-md-4">
+                 <img  id="photos" src={value.url} />
+                 </div>
+         });
+        return(  
             <div className="col-md-4">
-                <img  id = "image"  src={this.state.data.url}/>
+           {pics}
             </div>
-         )
-    }    
+        )
+        
+    }
 }
+

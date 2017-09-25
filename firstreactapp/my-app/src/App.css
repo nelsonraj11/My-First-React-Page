@@ -1,10 +1,14 @@
 
 .App-logo {
   height: 144px;
-  margin-left:3%;
+  padding-bottom: 2%;
+  margin-left: 0%;
   margin-top: 25px;
 }
 .container{
   background-color: rgba(157, 157, 157, 0.31);
+}
+#photos{
+  
 }
 
