@@ -8,7 +8,11 @@
 .container{
   background-color: rgba(157, 157, 157, 0.31);
 }
-#photos{
-  
+#photos {
+  width: 93%;
+  padding-bottom: 5%;
 }
-
+h2{
+  margin-left: 17px;
+  color: #e80000;
+}

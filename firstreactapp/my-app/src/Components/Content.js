@@ -26,7 +26,9 @@ export class Content extends React.Component{
     render() {        
         var album = this.state.data.map((value) => this.renderAlbum(value));
         return(
-        <div>{album}</div>
+        <div>
+            <h2> Albums </h2>
+            {album}</div>
         );
         
 

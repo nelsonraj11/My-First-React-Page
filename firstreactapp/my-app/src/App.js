@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import Galleria from 'galleria';
 import {BrowserRouter as Router, Route } from 'react-router-dom'
 import logo from './logo.png';
 import './App.css';
@@ -11,7 +12,7 @@ class App extends Component {
     return (  
   <Router>
     <div className="container">
-      <div className="App"> 
+      <div class="App" id="app"> 
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <Route exact path ="/" component={Content}/>
