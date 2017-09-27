@@ -12,12 +12,14 @@ class App extends Component {
     return (  
   <Router>
     <div className="container">
-      <div class="App" id="app"> 
+      <div className="App" id="app"> 
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <Route exact path ="/" component={Content}/>
           </div>
+            <Route path ="/content/" component={Content}/>
             <Route path ="/photos/:id" component={Photos}/>
+
       </div>     
     </div> 
   </Router>

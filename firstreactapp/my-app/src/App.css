@@ -16,3 +16,38 @@ h2{
   margin-left: 17px;
   color: #e80000;
 }
+.sk-wave {
+  width: 30px;
+  height: 27px;
+  margin-left: 48%;
+}
+#back {
+  border: none;
+  color: red;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+#back {
+  background-color: #35cedf;
+  color: black; 
+  border: 2px solid #008CBA;
+  position: absolute;
+  top: 156px;
+  right: 181px;
+}
+
+#back:hover {
+  background-color: #008CBA;
+  color: white;
+}
+#photos{
+  position: relative;
+}
+

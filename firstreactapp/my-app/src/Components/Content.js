@@ -1,6 +1,7 @@
 import React from 'react';
 import {Album} from './Album';
 
+
 const ALBUM_URL = "https://jsonplaceholder.typicode.com/albums/";
 // const ALBUM_ID = "/photos";
 export class Content extends React.Component{
@@ -29,8 +30,7 @@ export class Content extends React.Component{
         <div>
             <h2> Albums </h2>
             {album}</div>
-        );
-        
+        );     
 
     } 
 }

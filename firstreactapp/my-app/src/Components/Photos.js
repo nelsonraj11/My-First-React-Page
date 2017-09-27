@@ -1,17 +1,20 @@
 import React from 'react';
+import '../App.css';
+import { Link } from 'react-router-dom'
 // import React from 'react-dom';
 //import Galleria from 'galleria';
-//import Spinner from 'react-spinkit';
-
-
+import Spinner from 'react-spinkit';
+import {Content} from './Content';
+//import {Content} from './Content';
 
 const ALBUM_URL = "https://jsonplaceholder.typicode.com/albums/";
 const ALBUM_ID = "/photos";
+
 export class Photos extends React.Component{
     constructor(props){
         super(props);
-        this.state = {
-            data: []
+        this.state = { loader:true,
+        data: []
         }
     }
     componentDidMount(){ 
@@ -19,7 +22,7 @@ export class Photos extends React.Component{
         fetch(pics)
         .then(results => results.json())
         .then(data => {
-            this.setState({data:data,})       
+            this.setState({data:data,loader:false})                
         })  
     }
     // componentWillMount(){
@@ -28,18 +31,29 @@ export class Photos extends React.Component{
     //     Galleria.run('.galleria');
 
     // }
-    render(){
-        var pics = this.state.data.map((value) => {
-            return <div className="col-md-4">
+
+render(){
+    console.log("hi",this.state.data)
+    let pics = this.state.data.map((value) => {
+         return (
+            <div className="col-md-4 well">
                 <img  id="photos" src={value.url} />
-                </div>
-       });
-        //console.log(this.state.data)
-        return(  
-            <div className="col-md-12-galleria">
-                <h2> Photos </h2> 
-                {pics}
             </div>
         )
-    }
+    });
+    var load;
+        if (this.state.loader) {
+            load = <Spinner name="wave" color="blue"/>;
+        } else {
+            load = pics;
+        }
+    return(  
+        <div className="col-md-12-galleria">
+            <h2> Photos </h2> 
+            {load}  
+            <Link to = {"/Content/"}><button className="button" id ="back"> Back to Album</button></Link>
+        </div>
+    )
+            
+}
 }
