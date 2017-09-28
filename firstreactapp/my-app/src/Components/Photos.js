@@ -1,11 +1,10 @@
 import React from 'react';
 import '../App.css';
 import { Link } from 'react-router-dom'
-// import React from 'react-dom';
-//import Galleria from 'galleria';
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 import Spinner from 'react-spinkit';
 import {Content} from './Content';
-//import {Content} from './Content';
 
 const ALBUM_URL = "https://jsonplaceholder.typicode.com/albums/";
 const ALBUM_ID = "/photos";
@@ -22,38 +21,37 @@ export class Photos extends React.Component{
         fetch(pics)
         .then(results => results.json())
         .then(data => {
-            this.setState({data:data,loader:false})                
+            var temp=[]
+            data.map((value) => {
+                let photos={original: value.url,
+                            thumbnail: value.thumbnailUrl}
+                temp.push(photos);
+            });
+            this.setState({data:temp,loader:false})  
+            console.log("array",this.state.data)              
         })  
-    }
-    // componentWillMount(){
-
-    //     Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
-    //     Galleria.run('.galleria');
-
-    // }
-
+    } 
 render(){
-    console.log("hi",this.state.data)
-    let pics = this.state.data.map((value) => {
-         return (
-            <div className="col-md-4 well">
-                <img  id="photos" src={value.url} />
-            </div>
-        )
-    });
-    var load;
-        if (this.state.loader) {
-            load = <Spinner name="wave" color="blue"/>;
-        } else {
-            load = pics;
-        }
+        let load;
+            if (this.state.loader) {
+                load = <Spinner name="wave" color="blue"/>;
+            } else {
+                load =  <ImageGallery
+                items={this.state.data}
+                slideInterval={1500}/>;
+            }
     return(  
-        <div className="col-md-12-galleria">
-            <h2> Photos </h2> 
-            {load}  
+        <div>
+            <h2> Photos </h2>  
+                <div className="size"> 
+                    {load}
+                </div>
             <Link to = {"/Content/"}><button className="button" id ="back"> Back to Album</button></Link>
         </div>
-    )
-            
+    )           
 }
 }
+ 
+
+
+

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-//import {Photos} from './Photos';
 
 const ALBUM_URL = "https://jsonplaceholder.typicode.com/albums/";
 const ALBUM_ID = "/photos";
@@ -17,7 +16,6 @@ export class Album extends React.Component{
         .then(results => results.json())
         .then(data => {
             this.setState({data:data[0]}) 
-            //console.log("data:",data[0]);
         })  
     }
     render(){

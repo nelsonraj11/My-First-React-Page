@@ -1,9 +1,7 @@
 import React from 'react';
 import {Album} from './Album';
 
-
 const ALBUM_URL = "https://jsonplaceholder.typicode.com/albums/";
-// const ALBUM_ID = "/photos";
 export class Content extends React.Component{
     constructor(){
         super();
@@ -14,14 +12,11 @@ export class Content extends React.Component{
     componentDidMount(){
         fetch(ALBUM_URL)
         .then(results => 
-          results.json()).then(data => {
-            //console.dir(data)
-            //console.log("this--", this)  ;            
+          results.json()).then(data => {            
             this.setState({data:data})  
         })  
     }
     renderAlbum(value){
-        //console.log("values",value);
        return <Album albumdetails={value}/>;
     }
     render() {        
